@@ -22,8 +22,8 @@ use App\Http\Controllers\ActivityLogController;
 */
 
 Route::get('/', function () {
-    return redirect('/login');
-});
+    return view('landing');
+})->name('home');
 
 // Authentication routes
 Route::middleware('guest')->group(function () {
