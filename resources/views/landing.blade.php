@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Promosi RS Azra Bogor — Cepat, Ramah, Berkualitas</title>
-    <meta name="description" content="Promo RS Azra Bogor: RS swasta pertama di Kota Bogor sejak 1994. IGD 24 jam, laparoskopi, endoskopi, MCU, Embria bayi tabung. Jl. Raya Pajajaran No.219, Bogor Utara.">
+    <meta name="description" content="Promo RS Azra Bogor: RS swasta pertama di Kota Bogor. IGD 24 jam, laparoskopi, endoskopi, MCU, Embria bayi tabung. Jl. Raya Pajajaran No.219, Bogor Utara.">
     <link rel="icon" type="image/png" href="https://rsazra.co.id/images/icon/logo-a.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,13 +29,15 @@
         }
     </script>
     <style>
+        html, body { overflow-x: clip; }
+        @supports not (overflow: clip) { html, body { overflow-x: hidden; } }
         body { font-family: 'Inter', sans-serif; }
         a, button { transition: all .2s ease-in-out; }
         .hover-card { transition: transform .2s ease-in-out, box-shadow .2s ease-in-out; }
         .hover-card:hover { transform: translateY(-2px); box-shadow: 0 4px 20px -5px rgba(0,0,0,.1); }
     </style>
 </head>
-<body class="font-sans antialiased text-gray-800 bg-white">
+<body class="font-sans antialiased text-gray-800 bg-white overflow-x-hidden">
 
 <!-- Strip warna khas RS Azra -->
 <div class="relative h-1.5 w-full overflow-hidden">
@@ -47,8 +49,8 @@
     </div>
 </div>
 
-<!-- Topbar -->
-<div class="bg-gradient-to-r from-primary-700 to-primary-600 text-white">
+<!-- Topbar (desktop saja) -->
+<div class="hidden lg:block bg-gradient-to-r from-primary-700 to-primary-600 text-white">
     <div class="max-w-7xl mx-auto px-4 py-2.5 flex flex-wrap items-center justify-between gap-2">
         <div class="flex items-center gap-4 sm:gap-5">
             <a href="https://www.instagram.com/rsazra/" target="_blank" rel="noopener" class="flex items-center gap-1.5 text-white/90 hover:text-white text-sm"><i class="fab fa-instagram"></i><span class="hidden lg:inline">rsazra</span></a>
@@ -56,9 +58,9 @@
             <a href="https://web.facebook.com/RumahSakitAzra" target="_blank" rel="noopener" class="flex items-center gap-1.5 text-white/90 hover:text-white text-sm"><i class="fab fa-facebook-square"></i><span class="hidden lg:inline">RS Azra</span></a>
             <a href="https://www.youtube.com/RSAZRAOfficial" target="_blank" rel="noopener" class="flex items-center gap-1.5 text-white/90 hover:text-white text-sm"><i class="fab fa-youtube"></i><span class="hidden lg:inline">RSAZRAOfficial</span></a>
         </div>
-        <div class="flex items-center divide-x divide-white/20 text-sm">
-            <a href="tel:02518318456" class="flex items-center px-3 sm:px-4 whitespace-nowrap hover:text-emerald-200"><i class="fas fa-phone-alt mr-2 text-emerald-300 text-xs"></i>0251 - 6900420</a>
-            <a href="https://wa.me/6281389001234" target="_blank" rel="noopener" class="flex items-center px-3 sm:px-4 whitespace-nowrap hover:text-emerald-200"><i class="fab fa-whatsapp mr-2 text-emerald-300"></i>0813-8900-1234</a>
+        <div class="flex flex-wrap items-center divide-x divide-white/20 text-[13px] sm:text-sm">
+            <a href="tel:02518318456" class="flex items-center px-2 sm:px-4 whitespace-nowrap hover:text-emerald-200"><i class="fas fa-phone-alt mr-1.5 text-emerald-300 text-xs"></i>0251 - 6900420</a>
+            <a href="https://wa.me/6281389001234" target="_blank" rel="noopener" class="flex items-center px-2 sm:px-4 whitespace-nowrap hover:text-emerald-200"><i class="fab fa-whatsapp mr-1.5 text-emerald-300"></i>0813-8900-1234</a>
             <span class="hidden lg:flex items-center pl-4"><span class="bg-white/15 rounded-lg py-1 px-3 text-xs font-medium whitespace-nowrap">Cepat, Ramah, Berkualitas</span></span>
         </div>
     </div>
@@ -71,7 +73,7 @@
             <img src="https://rsazra.co.id/images/icon/logo.png" alt="RS Azra Bogor" class="h-9 md:h-11" onerror="this.style.display='none'">
             <span class="leading-tight">
                 <span class="block font-extrabold text-primary-600 text-lg md:text-xl tracking-tight">RS AZRA</span>
-                <span class="block text-[10px] md:text-[11px] text-gray-500 font-medium tracking-wide">BOGOR • SEJAK 1994</span>
+                <span class="block text-[10px] md:text-[11px] text-gray-500 font-medium tracking-wide">BOGOR</span>
             </span>
         </a>
         <div class="hidden md:flex items-center space-x-5 text-sm font-medium">
@@ -105,7 +107,7 @@
 
 <!-- ===== SATU SECTION: PROMOSI RS AZRA ===== -->
 <section class="bg-gradient-to-b from-white to-primary-50/40">
-    <div class="max-w-7xl mx-auto px-4 py-10 md:py-16">
+    <div class="max-w-7xl mx-auto px-5 pt-4 pb-10 md:pt-8 md:pb-16">
 
         {{-- <!-- Pembuka promosi -->
         <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -157,7 +159,7 @@
         </div> --}}
 
         <!-- Layanan unggulan ala kartu rsazra.co.id -->
-        <div class="mt-10 ">
+        <div class="mt-2">
             <div class="flex flex-wrap items-end justify-between gap-3">
                 <div>
                     <p class="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-primary-700">
@@ -168,26 +170,26 @@
                 <a href="https://rsazra.co.id/medicalcheckup" target="_blank" rel="noopener" class="text-sm font-semibold text-primary-600 hover:text-primary-700">Lihat semua layanan <i class="fas fa-arrow-right ml-1 text-xs"></i></a>
             </div>
             <p class="mt-2 text-gray-500 text-sm md:text-base">Layanan kesehatan unggulan RS Azra untuk Anda dan keluarga.</p>
-            <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-                <div class="hover-card bg-white rounded-lg shadow-md p-5 border-b-[5px]" style="border-color:#FFE600">
-                    <i class="fas fa-truck-medical text-2xl text-primary-600"></i>
-                    <h3 class="mt-3 font-bold text-gray-900">IGD 24 Jam</h3>
-                    <p class="mt-1.5 text-sm text-gray-500 leading-relaxed">Gawat darurat, farmasi, dan ambulans siaga setiap hari. Telp: (0251) 8318456.</p>
+            <div class="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+                <div class="hover-card min-w-0 bg-white rounded-lg shadow-md p-4 sm:p-5 border-b-4 sm:border-b-[5px]" style="border-color:#FFE600">
+                    <i class="fas fa-truck-medical text-xl sm:text-2xl text-primary-600"></i>
+                    <h3 class="mt-2.5 sm:mt-3 text-sm sm:text-base font-bold text-gray-900">IGD 24 Jam</h3>
+                    <p class="hidden sm:block mt-1 sm:mt-1.5 text-xs sm:text-sm text-gray-500 leading-relaxed">Gawat darurat, farmasi, dan ambulans siaga setiap hari. Telp: (0251) 8318456.</p>
                 </div>
-                <div class="hover-card bg-white rounded-lg shadow-md p-5 border-b-[5px]" style="border-color:#9FE86C">
-                    <i class="fas fa-scissors text-2xl text-primary-600"></i>
-                    <h3 class="mt-3 font-bold text-gray-900">Laparoskopi &amp; Endoskopi</h3>
-                    <p class="mt-1.5 text-sm text-gray-500 leading-relaxed">Bedah minimal invasif: luka kecil, pemulihan lebih cepat, lebih nyaman.</p>
+                <div class="hover-card min-w-0 bg-white rounded-lg shadow-md p-4 sm:p-5 border-b-4 sm:border-b-[5px]" style="border-color:#9FE86C">
+                    <i class="fas fa-scissors text-xl sm:text-2xl text-primary-600"></i>
+                    <h3 class="mt-2.5 sm:mt-3 text-sm sm:text-base font-bold text-gray-900">Laparoskopi &amp; Endoskopi</h3>
+                    <p class="hidden sm:block mt-1 sm:mt-1.5 text-xs sm:text-sm text-gray-500 leading-relaxed">Bedah minimal invasif: luka kecil, pemulihan lebih cepat, lebih nyaman.</p>
                 </div>
-                <div class="hover-card bg-white rounded-lg shadow-md p-5 border-b-[5px]" style="border-color:#4CC2A7">
-                    <i class="fas fa-heart-pulse text-2xl text-primary-600"></i>
-                    <h3 class="mt-3 font-bold text-gray-900">MCU &amp; Laboratorium</h3>
-                    <p class="mt-1.5 text-sm text-gray-500 leading-relaxed">Medical check-up menyeluruh, lab modern, dan radiologi akurat.</p>
+                <div class="hover-card min-w-0 bg-white rounded-lg shadow-md p-4 sm:p-5 border-b-4 sm:border-b-[5px]" style="border-color:#4CC2A7">
+                    <i class="fas fa-heart-pulse text-xl sm:text-2xl text-primary-600"></i>
+                    <h3 class="mt-2.5 sm:mt-3 text-sm sm:text-base font-bold text-gray-900">MCU &amp; Laboratorium</h3>
+                    <p class="hidden sm:block mt-1 sm:mt-1.5 text-xs sm:text-sm text-gray-500 leading-relaxed">Medical check-up menyeluruh, lab modern, dan radiologi akurat.</p>
                 </div>
-                <div class="hover-card bg-white rounded-lg shadow-md p-5 border-b-[5px]" style="border-color:#27A3B6">
-                    <i class="fas fa-baby text-2xl text-primary-600"></i>
-                    <h3 class="mt-3 font-bold text-gray-900">Embria by Azra</h3>
-                    <p class="mt-1.5 text-sm text-gray-500 leading-relaxed">Program bayi tabung bersama Morula IVF — yang pertama di Kota Bogor.</p>
+                <div class="hover-card min-w-0 bg-white rounded-lg shadow-md p-4 sm:p-5 border-b-4 sm:border-b-[5px]" style="border-color:#27A3B6">
+                    <i class="fas fa-baby text-xl sm:text-2xl text-primary-600"></i>
+                    <h3 class="mt-2.5 sm:mt-3 text-sm sm:text-base font-bold text-gray-900">Embria by Azra</h3>
+                    <p class="hidden sm:block mt-1 sm:mt-1.5 text-xs sm:text-sm text-gray-500 leading-relaxed">Program bayi tabung bersama Morula IVF — yang pertama di Kota Bogor.</p>
                 </div>
             </div>
         </div>
