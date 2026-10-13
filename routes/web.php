@@ -1,14 +1,16 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ActivityLogController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\Kiosk\CheckinController;
+use App\Http\Controllers\Kiosk\DaftarController;
 use App\Http\Controllers\OrganizationTypeController;
 use App\Http\Controllers\OrganizationUnitController;
-use App\Http\Controllers\ActivityLogController;
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,14 @@ Route::get('/', function () {
     return view('landing');
 })->name('home');
 
+// Kiosk layanan mandiri (tanpa login petugas)
+Route::get('/daftar', [DaftarController::class, 'status'])->name('kiosk.daftar.status');
+Route::get('/daftar/baru', [DaftarController::class, 'baru'])->name('kiosk.daftar.baru');
+Route::get('/daftar/terdaftar', [DaftarController::class, 'authForm'])->name('kiosk.daftar.auth');
+Route::post('/daftar/terdaftar', [DaftarController::class, 'authenticate'])->name('kiosk.daftar.authenticate');
+Route::get('/checkin', [CheckinController::class, 'index'])->name('kiosk.checkin.index');
+Route::post('/checkin', [CheckinController::class, 'store'])->name('kiosk.checkin.store');
+
 // Authentication routes
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
@@ -37,7 +47,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-    
+
     // Profile routes
     Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile.index');
 
@@ -71,7 +81,7 @@ Route::middleware('auth')->group(function () {
     // Organization Unit Management routes
     Route::middleware('permission:manage_organization_units')->group(function () {
         Route::resource('organization-units', OrganizationUnitController::class);
-        
+
         // Member management routes
         Route::post('organization-units/{organization_unit}/members', [OrganizationUnitController::class, 'addMember'])
             ->name('organization-units.add-member');

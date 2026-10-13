@@ -1,0 +1,56 @@
+@import 'tailwindcss';
+
+/* Token desain halaman kiosk RS Azra (dipakai sebagai utility: font-kiosk, text-azra-navy, bg-card-antrian, ...) */
+@theme {
+    --font-kiosk: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+
+    --color-azra-navy: #1f2b4d;
+    --color-azra-ink: #2b3547;
+    --color-azra-muted: #5b6472;
+    --color-azra-line: #e2e5ea;
+    --color-azra-teal: #007774;
+    --color-page-bg: #eef0f3;
+
+    --color-card-antrian: #ffc400;
+    --color-card-daftar: #ff382b;
+    --color-card-checkin: #d50068;
+}
+
+/* Navbar: bayangan + background lebih solid saat halaman di-scroll (di-toggle via JS) */
+#kiosk-navbar.navbar-scrolled {
+    box-shadow: 0 10px 24px -14px rgba(31, 43, 77, 0.4);
+    background-color: rgb(255 255 255 / 0.92);
+}
+
+/* PIN pad: penanda input yang sedang aktif diisi */
+.pin-active {
+    outline: 3px solid var(--color-azra-teal);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 6px rgb(0 119 116 / 0.15);
+}
+
+/* Keyboard virtual: panel geser dari bawah */
+.vkbd-panel {
+    transform: translateY(110%);
+    transition: transform 0.28s cubic-bezier(0.32, 0.72, 0.35, 1);
+    pointer-events: none;
+}
+
+.vkbd-panel.vkbd-open {
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.vkbd-shift-on {
+    background-color: var(--color-azra-teal) !important;
+    color: #fff !important;
+}
+
+/* Layar sempit (ponsel): tombol keyboard lebih ramping agar 10 kolom muat */
+@media (max-width: 640px) {
+    [data-vkbd] [data-vkbd-key] {
+        height: 46px;
+        font-size: 15px;
+        border-radius: 10px;
+    }
+}
