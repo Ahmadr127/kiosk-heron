@@ -9,13 +9,6 @@
                     <path d="M10 19.5v-4.8h4v4.8" />
                 </svg>
             </a>
-            <a class="flex h-10 w-10 items-center justify-center rounded-[11px] border border-azra-line bg-[#f4f6f9] text-azra-navy no-underline transition duration-150 ease-out hover:-translate-y-[2px] hover:border-azra-navy hover:bg-white hover:shadow-[0_10px_18px_-10px_rgba(31,43,77,0.45)] active:translate-y-0 active:shadow-none focus-visible:outline-[3px] focus-visible:outline-offset-[3px] focus-visible:outline-azra-navy" href="{{ route('login') }}" aria-label="Pengaturan dan masuk petugas" title="Pengaturan">
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true">
-                    <circle cx="12" cy="12" r="5" />
-                    <circle cx="12" cy="12" r="2.1" />
-                    <path d="M17 12h2.5M4.5 12H7M12 7V4.5M12 19.5V17M15.54 8.46l1.77-1.77M6.69 17.31l1.77-1.77M15.54 15.54l1.77 1.77M6.69 6.69l1.77 1.77" />
-                </svg>
-            </a>
         </div>
 
         <div class="flex items-center gap-3 max-sm:gap-2" role="timer" aria-live="off" aria-label="Jam dan tanggal hari ini">

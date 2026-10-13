@@ -11,6 +11,10 @@
                 Tutup
             </button>
         </div>
+        <div class="mb-2 rounded-2xl bg-white/10 px-4 py-2" aria-live="polite" aria-label="Pratinjau teks yang diketik">
+            <p data-vkbd-label class="text-[11px] font-bold uppercase tracking-[0.14em] text-white/50">Input</p>
+            <p data-vkbd-preview class="min-h-[40px] truncate text-[26px] font-bold tabular-nums tracking-wide text-white">&nbsp;</p>
+        </div>
         <div data-vkbd-rows class="flex flex-col gap-2"></div>
         <div class="mt-2 flex gap-2">
             <button type="button" data-vkbd-key="enter" class="flex h-[58px] flex-1 items-center justify-center gap-2 rounded-2xl bg-azra-teal text-[17px] font-bold text-white shadow-[0_4px_0_rgba(0,0,0,0.35)] transition hover:brightness-110 active:translate-y-[2px] active:shadow-none">
@@ -33,6 +37,23 @@
         var ROWS = ['1234567890', 'QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM'];
         var caps = true;
         var active = null;
+        var preview = panel.querySelector('[data-vkbd-preview]');
+        var previewLabel = panel.querySelector('[data-vkbd-label]');
+
+        function fieldLabel(input) {
+            if (input.id) {
+                var label = document.querySelector('label[for="' + input.id + '"]');
+                if (label && label.textContent.trim() !== '') return label.textContent.trim();
+            }
+            if (input.placeholder && input.placeholder !== '') return input.placeholder;
+            if (input.name && input.name !== '') return input.name;
+            return 'Input';
+        }
+
+        function syncPreview() {
+            if (previewLabel) previewLabel.textContent = active ? fieldLabel(active) : 'Input';
+            if (preview) preview.textContent = active && active.value !== '' ? active.value : ' ';
+        }
 
         function keyButton(label, action, wide) {
             var btn = document.createElement('button');
@@ -67,6 +88,7 @@
         function show() {
             panel.classList.add('vkbd-open');
             panel.setAttribute('aria-hidden', 'false');
+            syncPreview();
             // Beri ruang di bawah body agar tombol submit tidak tertutup panel.
             try { document.body.style.paddingBottom = panel.offsetHeight + 'px'; } catch (_) { /* abaikan */ }
         }
@@ -85,6 +107,7 @@
             var pos = start + text.length;
             try { active.setSelectionRange(pos, pos); } catch (_) { /* abaikan */ }
             active.dispatchEvent(new Event('input', { bubbles: true }));
+            syncPreview();
         }
 
         function backspace() {
@@ -99,6 +122,7 @@
                 try { active.setSelectionRange(start - 1, start - 1); } catch (_) { /* abaikan */ }
             }
             active.dispatchEvent(new Event('input', { bubbles: true }));
+            syncPreview();
         }
 
         // Cegah input kehilangan fokus (dan keyboard fisik menutup) saat tombol ditekan.
@@ -140,6 +164,11 @@
                 try { input.setAttribute('inputmode', 'none'); } catch (_) { /* abaikan */ }
                 show();
             }
+        });
+
+        // Ketikan keyboard fisik / tempel (paste) ikut tampil di preview.
+        document.addEventListener('input', function (e) {
+            if (e.target === active) syncPreview();
         });
 
         document.addEventListener('click', function (e) {

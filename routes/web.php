@@ -34,6 +34,7 @@ Route::get('/daftar/terdaftar', [DaftarController::class, 'authForm'])->name('ki
 Route::post('/daftar/terdaftar', [DaftarController::class, 'authenticate'])->name('kiosk.daftar.authenticate');
 Route::get('/checkin', [CheckinController::class, 'index'])->name('kiosk.checkin.index');
 Route::post('/checkin', [CheckinController::class, 'store'])->name('kiosk.checkin.store');
+Route::view('/antrian', 'kiosk.antrian-info')->name('kiosk.antrian.info');
 
 // Authentication routes
 Route::middleware('guest')->group(function () {
